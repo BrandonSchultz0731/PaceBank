@@ -1,0 +1,5 @@
+.bodybg{
+  -fx-background-image: url("background.jpg");
+  -fx-background-repeat: inherit;
+
+}

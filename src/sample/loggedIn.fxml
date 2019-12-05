@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoggedInController">
+   <tabs>
+      <Tab onSelectionChanged="#loadData" text="My Account">
+         <content>
+            <AnchorPane prefHeight="900.0" prefWidth="1000.0">
+               <children>
+                  <Text fx:id="welcomeLabel" layoutX="50.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="841.773193359375">
+                     <font>
+                        <Font name="Chalkboard" size="61.0" />
+                     </font>
+                  </Text>
+                  <Separator layoutX="101.0" layoutY="238.0" prefHeight="0.0" prefWidth="778.0" />
+                  <Label layoutX="42.0" layoutY="306.0" prefHeight="61.0" prefWidth="429.0" text="Your Current Total Balance:">
+                     <font>
+                        <Font name="Chalkboard" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="currentBalanceLbl" layoutX="59.0" layoutY="376.0" prefHeight="52.0" prefWidth="270.0" style="-fx-border-color: #000000;">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="647.0" layoutY="604.0" prefHeight="66.0" prefWidth="265.0" text="Make a Deposit?">
+                     <font>
+                        <Font name="Chalkboard" size="35.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="depositAmtField" layoutX="699.0" layoutY="682.0" promptText="Enter Amount to Deposit" />
+                  <Button fx:id="depositBttn" layoutX="747.0" layoutY="734.0" mnemonicParsing="false" onAction="#depositClicked" text="Deposit!" />
+                  <ImageView fitHeight="106.0" fitWidth="838.0" layoutX="238.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.9">
+                     <image>
+                        <Image url="@bofa_enterprise_lo1_h_rgb-1-650x130.jpg" />
+                     </image></ImageView>
+                  <TableView fx:id="savingsTable" layoutX="42.0" layoutY="572.0" prefHeight="265.0" prefWidth="214.0">
+                    <columns>
+                      <TableColumn fx:id="savingsCol" prefWidth="69.0" text="SavingsID" />
+                      <TableColumn fx:id="accountCol" prefWidth="76.0" text="AccountID" />
+                        <TableColumn fx:id="balanceCol" prefWidth="68.0" text="Balance" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="checkingTable" layoutX="304.0" layoutY="569.0" prefHeight="270.0" prefWidth="227.0">
+                    <columns>
+                      <TableColumn fx:id="checkingCol" prefWidth="75.0" text="CheckingID" />
+                      <TableColumn fx:id="accountCol1" prefWidth="75.0" text="AccountID" />
+                        <TableColumn fx:id="balanceCol1" prefWidth="75.0" text="Balance" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="47.0" layoutY="533.0" text="Saving Accounts">
+                     <font>
+                        <Font name="Chalkboard" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="304.0" layoutY="533.0" text="Checking Accounts">
+                     <font>
+                        <Font name="Chalkboard" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="643.0" layoutY="310.0" text="Last Transaction:">
+                     <font>
+                        <Font name="Chalkboard" size="34.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="lastTransactionText" layoutX="635.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="287.14398193359375">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Select Product">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TilePane layoutX="103.0" layoutY="390.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#checkingClicked" prefHeight="239.0" prefWidth="282.0" style="-fx-background-color: #C1E5DF#C1E5DF;" styleClass="product" stylesheets="@Products.css" AnchorPane.leftAnchor="103.0" AnchorPane.topAnchor="390.0">
+                     <children>
+                        <VBox TilePane.alignment="CENTER">
+                           <children>
+                              <Label text="Checking">
+                                 <font>
+                                    <Font name="Chalkboard" size="33.0" />
+                                 </font>
+                              </Label>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Click on this box to open a Checking Account" wrappingWidth="137.32022094726562">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Need $500 to open a Checking Account" wrappingWidth="166.36428833007812">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                           <TilePane.margin>
+                              <Insets left="60.0" />
+                           </TilePane.margin>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="3.04" offsetX="10.0" offsetY="10.0" radius="10.8225" width="42.25" />
+                     </effect>
+                  </TilePane>
+                  <TilePane layoutX="595.0" layoutY="392.0" onMouseClicked="#savingsClicked" prefHeight="235.0" prefWidth="256.0" style="-fx-background-color: #C1E5DF#C1E5DF #C1E5DF#C1E5DF;" styleClass="product" stylesheets="@Products.css">
+                     <children>
+                        <VBox prefHeight="215.0" prefWidth="143.0">
+                           <TilePane.margin>
+                              <Insets left="50.0" />
+                           </TilePane.margin>
+                           <children>
+                              <Label alignment="TOP_LEFT" text="Savings">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Chalkboard" size="33.0" />
+                                 </font>
+                              </Label>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Click on this Box to open a Savings Account" wrappingWidth="148.10675048828125">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Need $500 to open a Savings Account" wrappingWidth="156.3482666015625">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow height="22.07" offsetX="10.0" offsetY="10.0" radius="15.517499999999998" width="42.0" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </TilePane>
+                  <Label layoutX="342.0" layoutY="169.0" text="Select A Product">
+                     <font>
+                        <Font name="Chalkboard" size="43.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="40.0" layoutY="244.0" prefHeight="0.0" prefWidth="912.0" />
+                  <ImageView fitHeight="145.0" fitWidth="1003.0" layoutX="144.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.4">
+                     <image>
+                        <Image url="@bofa_enterprise_lo1_h_rgb-1-650x130.jpg" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab onSelectionChanged="#loadProfile" text="My Profile">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="testImage" fitHeight="300.0" fitWidth="215.0" layoutX="84.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="402.0" layoutY="92.0" text="My Profile">
+                     <font>
+                        <Font name="Chalkboard" size="41.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="9.0" layoutY="159.0" prefHeight="19.0" prefWidth="982.0" />
+                  <Label layoutX="44.0" layoutY="196.0" text="Full Name:">
+                     <font>
+                        <Font name="Chalkboard" size="24.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="fullNameText" layoutX="12.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="179.22607421875">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="296.0" layoutY="196.0" text="DOB:">
+                     <font>
+                        <Font name="Chalkboard" size="24.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="dobText" layoutX="258.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="130.22900390625">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Text>
+                  <Label layoutX="667.0" layoutY="196.0" text="Full Address:">
+                     <font>
+                        <Font name="Chalkboard" size="24.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="fullAddressText" layoutX="587.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="289.22900390625">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Text>
+                  <Label layoutX="53.0" layoutY="321.0" text="Number of Current Open Accounts:">
+                     <font>
+                        <Font name="Chalkboard" size="24.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="numOfAcctText" layoutX="111.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="268.13916015625">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="576.0" layoutY="321.0" text="Username:">
+                     <font>
+                        <Font name="Chalkboard" size="24.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="usernameText" layoutX="572.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="120.275390625">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="44.0" layoutY="517.0" text="Proof of ID (If Entered)">
+                     <font>
+                        <Font name="Chalkboard" size="27.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="signOffBttn" layoutX="587.0" layoutY="646.0" mnemonicParsing="false" onAction="#signOffBttnClicked" prefHeight="73.0" prefWidth="124.0" text="Sign Off" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
